@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 03</title>
+</head>
+<body>
+    <!--PILA-->
+    <script src="javascript/pilas.js"></script>
+    <script>
+        const historial=new Pila();
+        historial.apilar('www.google.com');
+        historial.apilar('www.youtube.com');
+        historial.apilar('www.facebook.com');
+
+        console.log(historial.size);
+        console.log(historial.imprimir());
+    </script>
+    <!--COLA-->
+    <script src="javascript/cola.js"></script>
+    <script>
+        const impresora=new Cola();
+        impresora.encolar('documento1.pdf');
+        impresora.encolar('documento2.pdf');
+        console.log(impresora.imprimir());
+    </script>
+</html>
