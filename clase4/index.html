@@ -17,12 +17,20 @@
         const btnBuscar=document.getElementById("btnBuscar");
         const resultado=document.getElementById("resultado");
 
-        btnBuscar.addEventListener('click', ()=>{
+        btnBuscar.addEventListener('click', (e)=>{
+            e.preventDefault();
             const nombreBuscado=inputNombre.value.trim();
             if(nombreBuscado===''){
                 resultado.textContent="Escribe un nombre primero";
                 return;
             }
+            const posLineal=busquedaLineal(contactos, nombreBuscado);
+            if(posLineal===-1){
+                resultado.textContent=nombreBuscado + " no esta en la lista.";
+            }else{
+                resultado.textContent=nombreBuscado + " encontrado en la posición "+ posLineal;
+            }
+
         });
     </script>
 </body>
