@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eficiencia</title>
+</head>
+<body>
+    <h1>Análisis de eficiencia: O(n) vs o(n2)</h1>
+    <label for="largo">Tamaño del arreglo</label>
+    <select name="largo" id="largo">
+        <option value="100">100</option>
+        <option value="1000">1000</option>
+        <option value="5000">5000</option>
+        <option value="10000000">10000000</option>
+    </select>
+    <button id="btnProbar">Probar</button>
+    <p id="resultados"></p>
+    <script src="js/eficiencia.js"></script>
+    
+    <script>
+        const btnProbar=document.getElementById("btnProbar");
+        const largoSelect=document.getElementById("largo");
+        const resultados=document.getElementById("resultados");
+
+        btnProbar.addEventListener('click', () =>{
+            const n=parseInt(largoSelect.value);
+            const arreglo=generarArreglo(n);
+
+            const tiempoConstante=medirTiempo(operacionConstante, arreglo);
+            const tiempoLineal=medirTiempo(sumarTodos, arreglo);
+            const tiempoCuadratico=medirTiempo(tieneDuplicados, arreglo);
+
+            // ` ALT + 96
+            resultados.innerHTML=`
+                Arreglo de ${n} elementos:<br>
+                operacionConstante(O(1)): ${tiempoConstante}ms <br>
+                sumarTodos(O(n)): ${tiempoLineal}ms <br>
+                tieneDuplicados(O(n2)): ${tiempoCuadratico}ms <br>
+            `;
+        });
+    </script>
+</body>
+</html>
