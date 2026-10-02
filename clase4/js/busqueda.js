@@ -1,5 +1,5 @@
 const contactos =[
-    'Martha','Carlos','Ana','Luis','Elena'
+    'Martha','Carlos','Ana','Luis','Elena',
     'Pedro','Sofía','Diego','Lucía','Jorge'
 ];
 

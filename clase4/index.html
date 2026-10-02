@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 04</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="nombre" id="nombre" placeholder="Escribe nombre a buscar">
+        <button id="btnBuscar">Buscar</button>
+        <p id="resultado"></p>
+    </form>
+    <script src="js/busqueda.js"></script>
+    <script>
+        const inputNombre= document.getElementById("nombre");
+        const btnBuscar=document.getElementById("btnBuscar");
+        const resultado=document.getElementById("resultado");
+
+        btnBuscar.addEventListener('click', ()=>{
+            const nombreBuscado=inputNombre.value.trim();
+            if(nombreBuscado===''){
+                resultado.textContent="Escribe un nombre primero";
+                return;
+            }
+        });
+    </script>
+</body>
+</html>
