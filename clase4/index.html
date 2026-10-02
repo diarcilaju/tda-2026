@@ -24,7 +24,8 @@
                 resultado.textContent="Escribe un nombre primero";
                 return;
             }
-            const posLineal=busquedaLineal(contactos, nombreBuscado);
+            //const posLineal=busquedaLineal(contactos, nombreBuscado);
+            const posLineal=busquedaBinaria(contactosOrdenados, nombreBuscado);
             if(posLineal===-1){
                 resultado.textContent=nombreBuscado + " no esta en la lista.";
             }else{

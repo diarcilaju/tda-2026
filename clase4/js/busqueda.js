@@ -13,3 +13,19 @@ function busquedaLineal(contactos, nombreBuscado){
     }
     return -1;
 }
+
+function busquedaBinaria(contactosOrdenados, nombreBuscado){
+    let inicio=0;
+    let fin= contactosOrdenados.length -1;
+
+    while(inicio<=fin){
+        const medio= Math.floor((inicio+fin)/2);
+        if(contactosOrdenados[medio]===nombreBuscado) return medio;
+        if(contactosOrdenados[medio]<nombreBuscado){
+            inicio=medio+1;
+        }else{
+            fin=medio-1;
+        }
+    }
+    return -1;
+}
