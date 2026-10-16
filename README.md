@@ -60,4 +60,8 @@ console.log(`Multiplicación ${miCalculadora.multiplicar(n1, n2)}`);
 console.log(`División ${miCalculadora.dividir(n1, n2)}`);
 ```
 
+Agregamos la librería Tensorflow.js
+```bash
+npm install @tensorflow/tfjs
+```
 
