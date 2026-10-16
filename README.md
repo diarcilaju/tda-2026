@@ -14,3 +14,29 @@ Si ahora queremos trabajar con la sintaxis moderna ES Modules. Abrimos el archiv
   "type":"module",
   "main": "index.js",
 ```
+
+Ahora agregamos una clase Calculadora.
+
+```javascript
+class Calculadora{
+    sumar(a, b){
+        return a+b;
+    }
+
+    restar(a, b){
+        return a-b;
+    }
+
+    multiplicar(a, b){
+        return a*b;
+    }
+
+    dividir(a, b){
+        if(b===0){
+            return "Error";
+        }
+        return a/b;
+    }
+}
+export default Calculadora;
+```
