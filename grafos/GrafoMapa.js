@@ -10,7 +10,7 @@ class GrafoMapa{
     }
     agregarConexion(origen, destino, distanciaEnKm){
         this.agregarLugar(origen);
-        this.agregarDestino(destino);
+        this.agregarLugar(destino);
         this.adyacencia.get(origen).push({lugar:destino, distancia: distanciaEnKm});
         this.adyacencia.get(destino).push({lugar:origen, distancia: distanciaEnKm});
     }
