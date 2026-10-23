@@ -16,6 +16,6 @@ mapa.imprimirMapa();
 
 //Calcular la ruta más corta
 console.log("===Cálculo de la ruta más corta===");
-const resultado=mapa.obtenerRutaMasCorta('Chiclayo','Pomalca');
+const resultado=mapa.obtenerRutaMasCorta('Chiclayo','Tumán');
 console.log(`Ruta óptima: ${resultado.ruta.join('->')}`);
 console.log(`Distancia total: ${resultado.distanciaTotal} km`);
