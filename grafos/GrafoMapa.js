@@ -36,33 +36,38 @@ class GrafoMapa{
         distancias[origen]=0;
         while(noVisitados.size>0){
             let actual=null;
-            for(let nodo of noVisitados){
-                if(actual===null || distancias[nodo] || distancias[actual]){
-                    actual=nodo;
+            for (let nodo of noVisitados) {
+                if (actual === null || distancias[nodo] < distancias[actual]) {
+                    actual = nodo;
                 }
             }
-            if(distancias[actual]==Infinity || actual===destino) break;
+            if (distancias[actual] === Infinity || actual === destino) {
+                break;
+            }
+
             noVisitados.delete(actual);
 
-            for(let vecino of this.adyacencia.get(actual)){
-                if(noVisitados.has(vecino.lugar)){
-                    const alt=distancias[actual]+ vecino.distancia;
-                    if(alt<distancias[vecino.lugar]){
-                        distancias[vecino.lugar]=alt;
-                        previos[vecino.lugar]=actual;
+            for (let vecino of this.adyacencia.get(actual)) {
+                if (noVisitados.has(vecino.lugar)) {
+                    const alt = distancias[actual] + vecino.distancia;
+                    if (alt < distancias[vecino.lugar]) {
+                        distancias[vecino.lugar] = alt;
+                        previos[vecino.lugar] = actual;
                     }
                 }
             }
         }
-        const ruta=[];
-        let paso=destino;
-        while(paso){
+        const ruta = [];
+        let paso = destino;
+
+        while (paso) {
             ruta.unshift(paso);
-            paso=previos[paso];
+            paso = previos[paso];
         }
+
         return {
-            distanciaTotal: distancias[destino],
-            ruta: ruta[0]=== origen?ruta:[]
+            distanciaTotal: distancias[destino], 
+            ruta: ruta[0] === origen ? ruta : []
         };
     }
 }
