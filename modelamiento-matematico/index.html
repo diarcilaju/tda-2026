@@ -3,16 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jugos</title>
+    <meta name="theme-color" content="#f4f8ef">
+    <title>Calculadora de punto de equilibrio | Jugos</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #173b31;
+            background: #f4f8ef;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 20px;
+            background:
+                radial-gradient(ellipse at 8% 8%, #e5f2d9 0, transparent 34%),
+                #f4f8ef;
+        }
+
+        main {
+            width: min(100%, 680px);
+            margin: 0 auto;
+        }
+
+        .intro {
+            margin: 0 0 24px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #447b51;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            color: #173b31;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            line-height: 1.15;
+        }
+
+        .intro p {
+            max-width: 480px;
+            margin: 12px auto 0;
+            color: #60746a;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .calculator {
+            padding: clamp(22px, 5vw, 36px);
+            border: 1px solid #e4eadf;
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 18px 50px rgb(35 70 48 / 9%);
+        }
+
+        .fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 8px;
+            color: #294b3d;
+            font-size: 0.92rem;
+            font-weight: 650;
+        }
+
+        .field input {
+            width: 100%;
+            min-height: 50px;
+            padding: 0 14px;
+            border: 1px solid #d7e1d5;
+            border-radius: 10px;
+            outline: none;
+            background: #fbfcfa;
+            color: #173b31;
+            font: inherit;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        .field input:focus {
+            border-color: #4b9a59;
+            box-shadow: 0 0 0 3px rgb(75 154 89 / 16%);
+        }
+
+        .field input::placeholder {
+            color: #8b9b91;
+        }
+
+        .field-hint {
+            display: block;
+            margin-top: 6px;
+            color: #75857b;
+            font-size: 0.78rem;
+        }
+
+        button {
+            display: flex;
+            width: 100%;
+            min-height: 52px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            margin-top: 26px;
+            border: 0;
+            border-radius: 11px;
+            background: #278044;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            background: #1e6e38;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #a8d58e;
+            outline-offset: 3px;
+        }
+
+        .result {
+            min-height: 78px;
+            margin-top: 22px;
+            padding: 17px 19px;
+            border: 1px solid #e1eadb;
+            border-radius: 12px;
+            background: #f5f9f1;
+            color: #294b3d;
+            font-size: 0.96rem;
+            line-height: 1.7;
+            white-space: pre-line;
+        }
+
+        .result:empty::before {
+            color: #75857b;
+            content: "Completa los datos y calcula para ver el resultado.";
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 32px 16px;
+            }
+
+            .fields {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>Puesto de jugos: ¿Cuántos vasos debo vender?</h2>
-    Precio de venta por vaso: <input type="number" id="precio" value="5"><br>
-    Costo de producción por vaso: <input type="number" id="variable" value="2"><br>
-    Gastos fijos del mes: <input type="number" id="fijo" value="1000"><br>
-    Vasos que pienso vender: <input type="number" id="vasos" value="100"><br>
-    <button onclick="calcular()">Calcular</button>
-    <p id="resultado"></p>
+    <main>
+        <header class="intro">
+            <span class="eyebrow">🍊 Finanzas para tu negocio</span>
+            <h1>¿Cuántos vasos debes vender?</h1>
+            <p>Calcula tu punto de equilibrio y descubre la utilidad estimada de tu puesto de jugos.</p>
+        </header>
+
+        <section class="calculator" aria-label="Datos del negocio">
+            <div class="fields">
+                <div class="field">
+                    <label for="precio">Precio de venta por vaso</label>
+                    <input type="number" id="precio" value="5" min="0" step="0.01" inputmode="decimal">
+                    <span class="field-hint">¿Cuánto pagará tu cliente?</span>
+                </div>
+                <div class="field">
+                    <label for="variable">Costo de producción por vaso</label>
+                    <input type="number" id="variable" value="2" min="0" step="0.01" inputmode="decimal">
+                    <span class="field-hint">Fruta, vaso y otros insumos</span>
+                </div>
+                <div class="field">
+                    <label for="fijo">Gastos fijos del mes</label>
+                    <input type="number" id="fijo" value="1000" min="0" step="0.01" inputmode="decimal">
+                    <span class="field-hint">Alquiler, servicios y otros</span>
+                </div>
+                <div class="field">
+                    <label for="vasos">Vasos que piensas vender</label>
+                    <input type="number" id="vasos" value="100" min="0" step="1" inputmode="numeric">
+                    <span class="field-hint">Tu meta de ventas del mes</span>
+                </div>
+            </div>
+            <button type="button" onclick="calcular()">Calcular mi punto de equilibrio <span aria-hidden="true">→</span></button>
+            <div class="result" id="resultado" role="status" aria-live="polite"></div>
+        </section>
+    </main>
     <script src="modelo.js"></script>
 </body>
 </html>
