@@ -29,7 +29,7 @@ export const crear = async (req, res) => {
     await Producto.crear(req.body);
     res.redirect('/productos');
 }
-const fomularioEditar = async (req, res) => {
+export const fomularioEditar = async (req, res) => {
     const producto = await Producto.obtener(req.params.id);
     if(!producto){
         return res.status(404).send('Producto no encontrado');
