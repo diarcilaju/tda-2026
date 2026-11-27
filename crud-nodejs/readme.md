@@ -47,3 +47,15 @@ INSERT INTO productos(nombre, precio, stock) values
 ('Torta de chocolate', 25.00, 10),
 ('Empanada', 3.50, 50);
 ```
+
+6. Ahora creamos el archivo de conexión a la base de datos de config/db.js
+```
+import mysql from 'mysql2/promise';
+
+export default mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'dbsistema'
+});
+```
