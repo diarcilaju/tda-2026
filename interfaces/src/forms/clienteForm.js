@@ -1,0 +1,1 @@
+export default [{ name: "documento", label: "Documento", required: true }, { name: "nombre", label: "Nombre", required: true }, { name: "ciudad", label: "Ciudad", required: true }, { name: "telefono", label: "Teléfono" }, { name: "correo", label: "Correo", type: "email" }];

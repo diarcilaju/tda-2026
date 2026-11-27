@@ -1,0 +1,3 @@
+import { repository } from "./memoryService.js";
+const service = repository("ordenes", [{ id: "OC-2408", proveedor: "Andes Selectos SAC", fecha: "2026-10-28", estado: "Pendiente", total: 4850 }, { id: "OC-2407", proveedor: "Mercado Verde SRL", fecha: "2026-10-27", estado: "Recibido", total: 2130 }, { id: "OC-2406", proveedor: "Distribuciones Norte EIRL", fecha: "2026-10-25", estado: "En tránsito", total: 3620 }]);
+export const listar = service.listar; export const obtener = service.obtener; export const crear = service.crear; export const actualizar = service.actualizar; export const eliminar = service.eliminar;

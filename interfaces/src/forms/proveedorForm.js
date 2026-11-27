@@ -1,0 +1,1 @@
+export default [{ name: "ruc", label: "RUC", required: true }, { name: "razonSocial", label: "Razón social", required: true }, { name: "contacto", label: "Contacto", required: true }, { name: "telefono", label: "Teléfono" }, { name: "correo", label: "Correo", type: "email", required: true }];

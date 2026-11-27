@@ -1,0 +1,3 @@
+import { repository } from "./memoryService.js";
+const service = repository("entregas", [{ id: "D-091", pedido: "V-5831", repartidor: "Luis Arias", direccion: "Av. Primavera 124, Lima", estado: "En ruta", fecha: "2026-10-30" }, { id: "D-090", pedido: "V-5830", repartidor: "Marta Rojas", direccion: "Calle Los Pinos 410, Lima", estado: "Preparando", fecha: "2026-10-30" }, { id: "D-089", pedido: "V-5829", repartidor: "Luis Arias", direccion: "Jr. San Martín 205, Lima", estado: "Entregado", fecha: "2026-10-29" }]);
+export const listar = service.listar; export const obtener = service.obtener; export const crear = service.crear; export const actualizar = service.actualizar; export const eliminar = service.eliminar;

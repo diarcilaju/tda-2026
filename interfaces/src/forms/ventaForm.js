@@ -1,0 +1,1 @@
+export default [{ name: "cliente", label: "Cliente", type: "select", required: true, options: [] }, { name: "fecha", label: "Fecha", type: "date", required: true }, { name: "estado", label: "Estado", type: "select", required: true, options: ["Pendiente", "Pagado", "Anulado"] }, { name: "total", label: "Total (S/)", type: "number", min: 0, required: true }];

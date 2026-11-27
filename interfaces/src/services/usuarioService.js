@@ -1,0 +1,3 @@
+import { repository } from "./memoryService.js";
+const service = repository("usuarios", [{ id: "U-1", usuario: "admin", nombre: "Alex Rivera", correo: "admin@nexo.pe", rol: "Administrador", activo: true, password: "Admin123" }, { id: "U-2", usuario: "vendedor", nombre: "Diego Luna", correo: "ventas@nexo.pe", rol: "Vendedor", activo: true, password: "Venta123" }, { id: "U-3", usuario: "almacenero", nombre: "Valeria Soto", correo: "almacen@nexo.pe", rol: "Almacén", activo: true, password: "Alma123" }]);
+export const listar = service.listar; export const obtener = service.obtener; export const crear = service.crear; export const actualizar = service.actualizar; export const eliminar = service.eliminar;

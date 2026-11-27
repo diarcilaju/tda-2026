@@ -1,0 +1,1 @@
+export default [{ name: "nombre", label: "Nombre", required: true }, { name: "descripcion", label: "Descripción", required: true }, { name: "modulos", label: "Módulos permitidos", type: "multiselect", required: true, options: ["inicio", "almacen", "compras", "ventas", "delivery", "seguridad"] }];

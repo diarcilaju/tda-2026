@@ -1,0 +1,3 @@
+import { repository } from "./memoryService.js";
+const service = repository("proveedores", [{ id: "PR-01", ruc: "20123456789", razonSocial: "Andes Selectos SAC", contacto: "Lucía Paredes", telefono: "987 221 450", correo: "ventas@andes.pe" }, { id: "PR-02", ruc: "20456789123", razonSocial: "Distribuciones Norte EIRL", contacto: "Marco León", telefono: "944 380 120", correo: "pedidos@norte.pe" }, { id: "PR-03", ruc: "20555123456", razonSocial: "Mercado Verde SRL", contacto: "Elena Ríos", telefono: "981 440 620", correo: "hola@mercadoverde.pe" }]);
+export const listar = service.listar; export const obtener = service.obtener; export const crear = service.crear; export const actualizar = service.actualizar; export const eliminar = service.eliminar;

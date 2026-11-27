@@ -1,0 +1,3 @@
+import { repository } from "./memoryService.js";
+const service = repository("roles", [{ id: "R-1", nombre: "Administrador", descripcion: "Acceso completo al sistema", modulos: ["inicio", "almacen", "compras", "ventas", "delivery", "seguridad"] }, { id: "R-2", nombre: "Vendedor", descripcion: "Gestión de ventas y entregas", modulos: ["inicio", "ventas", "delivery"] }, { id: "R-3", nombre: "Almacén", descripcion: "Gestión de inventario y compras", modulos: ["inicio", "almacen", "compras"] }]);
+export const listar = service.listar; export const obtener = service.obtener; export const crear = service.crear; export const actualizar = service.actualizar; export const eliminar = service.eliminar;

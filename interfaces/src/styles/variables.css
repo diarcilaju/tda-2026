@@ -1,0 +1,27 @@
+:root {
+  color-scheme: light dark;
+  --brand: #176b58;
+  --brand-dark: #105341;
+  --brand-soft: #e3f2ec;
+  --ink: #1c2925;
+  --muted: #6b7772;
+  --surface: #ffffff;
+  --canvas: #f3f6f3;
+  --border: #e2e8e3;
+  --danger: #bd4d43;
+  --radius: 10px;
+  --shadow: 0 12px 32px rgb(34 54 44 / 8%);
+  --font: "Aptos", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e6eee9;
+    --muted: #a4b1a9;
+    --surface: #202a25;
+    --canvas: #151d19;
+    --border: #35423a;
+    --brand-soft: #243d33;
+    --shadow: 0 12px 32px rgb(0 0 0 / 22%);
+  }
+}

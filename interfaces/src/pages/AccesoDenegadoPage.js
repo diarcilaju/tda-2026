@@ -1,0 +1,2 @@
+import { el, button } from "../components/ui/dom.js";
+export default function AccesoDenegadoPage() { const section = el("section", { className: "access-denied" }, [el("span", { className: "denied-icon", text: "⛨" }), el("h1", { text: "Acceso no disponible" }), el("p", { text: "Tu rol no tiene permiso para ver esta sección." }), button("Volver al inicio", () => { location.hash = "#/inicio"; }, "button primary")]); return section; }

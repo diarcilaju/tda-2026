@@ -1,0 +1,1 @@
+export default [{ name: "proveedor", label: "Proveedor", type: "select", required: true, options: [] }, { name: "fecha", label: "Fecha", type: "date", required: true }, { name: "estado", label: "Estado", type: "select", required: true, options: ["Pendiente", "En tránsito", "Recibido", "Anulado"] }, { name: "total", label: "Total (S/)", type: "number", min: 0, required: true }];
