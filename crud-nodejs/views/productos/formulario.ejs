@@ -1,0 +1,20 @@
+<%- include('../partials/cabecera') %>
+
+<h2><%=titulo%></h2>
+<% if (errores.length > 0) { %>
+    <ul class="errores">
+        <% errores.forEach(error => { %>
+            <li><%= error%></li>
+        <% }) %>
+    </ul>
+<% } %>
+<form action="<%= accion %>" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" value="<%= producto.nombre %>" required>
+    <label for="precio">Precio:</label>
+    <input type="number" name="precio" id="precio" value="<%= producto.precio %>" required>
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock" id="stock" value="<%= producto.stock %>" required>
+    <button type="submit">Guardar</button>
+</form>
+<%- include('../partials/pie') %>
